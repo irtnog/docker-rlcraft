@@ -12,28 +12,6 @@ if [ ! -e eula.txt ]; then
     fi
 fi
 
-# Get Forge
-if [ ! -f "forge-server.jar" ]; then
-	echo " **********************"
-	echo " *  INSTALLING FORGE  *"
-	echo " **********************"
-    wget https://files.minecraftforge.net/maven/net/minecraftforge/forge/1.12.2-14.23.5.2838/forge-1.12.2-14.23.5.2838-installer.jar -O forge-installer.jar
-    java -jar forge-installer.jar --installServer
-    rm forge-installer.jar
-    mv forge-1.12.*-universal.jar forge-server.jar
-fi
-
-# Get RLCraft
-if [ ! -d "mods" ]; then
-	echo " ************************"
-	echo " *  INSTALLING RLCraft  *"
-	echo " ************************"
-	wget https://media.forgecdn.net/files/2935/323/RLCraft+Server+Pack+1.12.2+-+Beta+v2.8.2.zip -O rlcraft.zip
-	unzip rlcraft.zip -d ziptmp
-	mv ziptmp/*/* .
-	rm -rf ziptmp rlcraft.zip
-fi
-
 echo " **********************"
 echo " *  STARTING RLCraft  *"
 echo " **********************"
