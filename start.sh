@@ -28,7 +28,7 @@ if [ ! -d "mods" ]; then
 	echo " ************************"
 	echo " *  INSTALLING RLCraft  *"
 	echo " ************************"
-	wget https://media.forgecdn.net/files/2791/783/RLCraft+Server+Pack+1.12.2+-+Beta+v2.8.2.zip -O rlcraft.zip
+	wget https://media.forgecdn.net/files/2935/323/RLCraft+Server+Pack+1.12.2+-+Beta+v2.8.2.zip -O rlcraft.zip
 	unzip rlcraft.zip -d ziptmp
 	mv ziptmp/*/* .
 	rm -rf ziptmp rlcraft.zip
