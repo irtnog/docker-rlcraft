@@ -1,11 +1,12 @@
 FROM openjdk:8
 
+COPY ./start.sh /
+
 RUN set -eux; \
         adduser --system --group app; \
         mkdir -p /server; \
-        chown -R app:app /server
-
-COPY ./start.sh /
+        chown -R app:app /start.sh /server; \
+	chmod 0755 /start.sh
 
 WORKDIR /server
 
