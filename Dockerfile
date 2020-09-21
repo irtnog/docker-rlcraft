@@ -1,12 +1,9 @@
 FROM openjdk:8
 
-COPY ./start.sh /
-
 RUN set -eux; \
         adduser --system --group app; \
         mkdir -p /server; \
-        chown -R app:app /start.sh /server; \
-	chmod 0755 /start.sh
+        chown -R app:app /server
 
 WORKDIR /server
 
@@ -34,6 +31,8 @@ eula=TRUE\n' > eula.txt; \
         rm rlcraft.zip; \
         wget https://media.forgecdn.net/files/2811/832/Chunk+Pregenerator+V1.12-2.2.jar -O mods/Chunk+Pregenerator+V1.12-2.2.jar
 
-ENTRYPOINT ["/start.sh"]
+COPY ./start.sh /server/
+
+ENTRYPOINT ["/server/start.sh"]
 
 EXPOSE 25565
