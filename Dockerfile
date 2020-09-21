@@ -31,7 +31,7 @@ eula=TRUE\n' > eula.txt; \
         rm rlcraft.zip; \
         wget https://media.forgecdn.net/files/2811/832/Chunk+Pregenerator+V1.12-2.2.jar -O mods/Chunk+Pregenerator+V1.12-2.2.jar
 
-COPY ./start.sh /server/
+COPY --chown=app:app ./start.sh /server/
 
 ENTRYPOINT ["/server/start.sh"]
 
