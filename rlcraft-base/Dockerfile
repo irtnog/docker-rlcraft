@@ -20,13 +20,17 @@ eula=TRUE\n' > eula.txt; \
         echo stop | java -jar forge-server.jar nogui; \
         rm eula.txt; \
         rm -rf logs/*; \
-        rm -rf world/*; \
+        rm -rf world/*
+
+RUN set -eux; \
+        wget https://media.forgecdn.net/files/2811/832/Chunk+Pregenerator+V1.12-2.2.jar -O mods/Chunk+Pregenerator+V1.12-2.2.jar
+
+RUN set -eux; \
         sed -i'' -e 's/level-seed=.*/level-seed=/' server.properties; \
         sed -i'' -e 's/allow-flight=.*/allow-flight=true/' server.properties; \
         sed -i'' -e 's/difficulty=.*/difficulty=3/' server.properties; \
         sed -i'' -e 's/max-tick-time=.*/max-tick-time=-1/' server.properties; \
-        sed -i'' -e 's/view-distance=.*/view-distance=6/' server.properties; \
-        wget https://media.forgecdn.net/files/2811/832/Chunk+Pregenerator+V1.12-2.2.jar -O mods/Chunk+Pregenerator+V1.12-2.2.jar
+        sed -i'' -e 's/view-distance=.*/view-distance=6/' server.properties
 
 COPY --chown=app:app ./start.sh /server/
 
